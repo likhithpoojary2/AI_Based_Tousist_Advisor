@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+
+
+{% block body %}
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(../static/assets/images/backgrounds/page-header-bg-1-1.jpg);"></div><!-- /.page-header__bg -->
+            <div class="container">
+                <div class="page-header__content">
+                    <h2 class="page-header__title bw-split-in-right">Routing</h2>
+                    <ul class="gotur-breadcrumb list-unstyled">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li><span>Routing</span></li>
+                    </ul><!-- /.thm-breadcrumb list-unstyled -->
+                </div><!-- /.page-header__content -->
+            </div><!-- /.container -->
+        </section><!-- /.page-header -->
+
+        <section class="product-page section-space">
+            <div class="container">
+                <div class="row justify-content-center gutter-y-40">
+                  
+                    <div class="col-lg-9">
+                     
+                        <div class="row gutter-y-30">
+                            <h2 style="color:orange">Travel Routes for {{ place }}</h2>
+
+                            {% if travel_data %}
+                            {% for route in travel_data %}
+                            <p>
+                                {{route}}
+                            </p>
+                            <div class="col-12">
+                                <div class="product-list__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='000ms'>
+                                    <div class="row align-items-center gutter-y-30">
+                                 
+                                        <div class="col-md-8">
+                                            <div class="product-list__item__content">
+                                                <h4 class="product-list__item__title"><a href="product-list-details.html">{{ route.route }}</a></h4><!-- /.product-list-title -->
+                                                
+                                                <p class="product-list__item__text">Duration:</strong> {{ route.duration }}</p><!-- /.product-list__item__text -->
+                                                <div class="product-list__item__price">Distance:</strong> {{ route.total_distance }}</div><!-- /.product-list-price -->
+                                                <p class="product-list__item__text">Price:</strong> {{ route.price_range.currency }} {{ route.price_range.low }} - {{ route.price_range.high }}</p>
+                                                <a href="{{ route.booking_url }}" target="_blank" class="gotur-btn gotur-btn--base"> Book Now <span class="gotur-btn__icon"> <i class="icon-shopping-carts"></i> </span></a><!-- /.gotur-btn -->
+                                            </div><!-- /.product-list-content -->
+                                        </div><!-- /.col-md-8 -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.product-list-item -->
+                            </div><!-- /.col-12 -->
+                            {% endfor %}
+                            {% else %}
+                                <p>No travel data available.</p>
+                            {% endif %}
+
+
+                         
+                        </div><!-- /.row -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endblock body %}

@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block body %}
+
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(../static/assets/images/backgrounds/page-header-bg-1-1.jpg);"></div><!-- /.page-header__bg -->
+            <div class="container">
+                <div class="page-header__content">
+                    <h2 class="page-header__title bw-split-in-right">Contact us</h2>
+                    <ul class="gotur-breadcrumb list-unstyled">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li><span>Contact us</span></li>
+                    </ul><!-- /.thm-breadcrumb list-unstyled -->
+                </div><!-- /.page-header__content -->
+            </div><!-- /.container -->
+        </section><!-- /.page-header -->
+
+        <section class="contact-top section-space">
+            <div class="container">
+                <div class="row gutter-y-30">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                        <div class="contact-top__item">
+                            <div class="contact-top__item__icon">
+                                <i class="icon-pin"></i>
+                            </div><!-- /.contact-top__item__icon -->
+                            <h4 class="contact-top__item__title">Our Address</h4><!-- /.contact-top__item__title -->
+                            <p class="contact-top__item__text">2464 Royal Ln. Mesa, New Jersey 45463.</p><!-- /.contact-top__item__text -->
+                        </div><!-- /.contact-top__item -->
+                    </div><!-- /.col-lg-4 col-md-6 -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                        <div class="contact-top__item">
+                            <div class="contact-top__item__icon">
+                                <i class="icon-mail-3"></i>
+                            </div><!-- /.contact-top__item__icon -->
+                            <h4 class="contact-top__item__title"><a href="mailto:info@gotur.com">info@gotur.com</a></h4><!-- /.contact-top__item__title -->
+                            <p class="contact-top__item__text">Email us anytime for anykind ofquety.</p><!-- /.contact-top__item__text -->
+                        </div><!-- /.contact-top__item -->
+                    </div><!-- /.col-lg-4 col-md-6 -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='700ms'>
+                        <div class="contact-top__item">
+                            <div class="contact-top__item__icon">
+                                <i class="icon-call-3"></i>
+                            </div><!-- /.contact-top__item__icon -->
+                            <h4 class="contact-top__item__title">Hot:<a href="tel:+208-666-0112">+208-666-0112</a></h4><!-- /.contact-top__item__title -->
+                            <p class="contact-top__item__text">Call us any kind suppor,we will wait for it.</p><!-- /.contact-top__item__text -->
+                        </div><!-- /.contact-top__item -->
+                    </div><!-- /.col-lg-4 col-md-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.contact-top -->
+
+        <section class="contact-page section-space-bottom">
+            <div class="container">
+                <div class="row gutter-y-30">
+                    <div class="col-lg-6 wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                        <div class="contact-page__map">
+                            <div class="google-map google-map__@@extraClassName">
+                            <iframe title="template google map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.737568409278!2d74.83556061480086!3d12.91414101949338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba3509b5fdf1f47%3A0x7cbf08c680ee87ef!2sMangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1623042789383!5m2!1sen!2sin" class="map__@@extraClassName" allowfullscreen></iframe>
+
+
+                            </div>
+                            <!-- /.google-map -->
+                        </div><!-- /.contact-page__map -->
+                    </div><!-- /.col-lg-5 -->
+                    <div class="col-lg-6 wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                        <div class="contact-page__contact">
+                            <h2 class="contact-page__title">Ready to Get Started?</h2><!-- /.contact-page__title -->
+                          <p class="contact-page__text">We’re excited to help you plan your next adventure! Reach out to us with any questions, suggestions, or inquiries, and our team will get back to you promptly. Let us make your travel planning seamless and stress-free.</p>
+
+                          <form action="https://formspree.io/f/xzzrnnrj" method="POST" class="comments-form__form contact-form-validated form-one">
+  <div class="form-one__group">
+    <div class="form-one__control">
+      <label for="name">Your Name*</label>
+      <input type="text" name="name" id="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-one__control">
+      <label for="email">Your Email*</label>
+      <input type="email" name="email" id="email" placeholder="Your Email" required>
+    </div>
+    <div class="form-one__control form-one__control--full">
+      <label for="message">Message*</label>
+      <textarea name="message" id="message" placeholder="Write Message . . " required></textarea>
+    </div>
+    <div class="form-one__control form-one__control--full">
+      <button type="submit" class="gotur-btn gotur-btn--base">Send Message <i class="icon-arrow-right"></i></button>
+    </div>
+  </div>
+</form>
+<div id="form-success-message" style="display:none; color:green; margin-top: 10px;">
+  Your message has been sent successfully!
+</div>
+<script>
+document.querySelector(".form-one").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  
+  const form = e.target;
+  const data = new FormData(form);
+  
+  const response = await fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+  
+  if (response.ok) {
+    form.reset();
+    document.getElementById("form-success-message").style.display = "block";
+  } else {
+    alert("Oops! There was a problem submitting your form.");
+  }
+});
+</script>
+
+
+                        </div><!-- /.contact-page__contact -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.contact-page -->
+        {% endblock body %}

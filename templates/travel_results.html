@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Data - {{ place }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        .travel-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .travel-route {
+            font-size: 20px;
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        .travel-info {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .travel-button {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s ease-in-out;
+        }
+        .travel-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Travel Routes for {{ place }}</h2>
+        {% if travel_data %}
+            {% for route in travel_data %}
+                <div class="travel-card">
+                    <h3 class="travel-route">{{ route.route }}</h3>
+                    <p class="travel-info"><strong>Duration:</strong> {{ route.duration }}</p>
+                    <p class="travel-info"><strong>Distance:</strong> {{ route.total_distance }}</p>
+                    <p class="travel-info"><strong>Price:</strong> {{ route.price_range.currency }} {{ route.price_range.low }} - {{ route.price_range.high }}</p>
+                    <a href="{{ route.booking_url }}" target="_blank" class="travel-button">Book Now</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No travel data available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

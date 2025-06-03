@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(../static/assets/images/backgrounds/page-header-bg-1-1.jpg);"></div><!-- /.page-header__bg -->
+            <div class="container">
+                <div class="page-header__content">
+                    <h2 class="page-header__title bw-split-in-right">Popular Tours</h2>
+                    <ul class="gotur-breadcrumb list-unstyled">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li><span>Tour Listing</span></li>
+                    </ul><!-- /.thm-breadcrumb list-unstyled -->
+                </div><!-- /.page-header__content -->
+            </div><!-- /.container -->
+        </section><!-- /.page-header -->
+
+        <section class="tour-listing-page section-space">
+            <div class="container">
+                <h3>Top 12 Most Popular Destinations</h3>
+                <div class="row gutter-y-30 gutter-x-30">
+                    {% if destinations %}
+                        {% for dest in destinations %}
+                            <div class="col-lg-4 col-md-6">
+                                <div class="listing-card-four wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                                    <div class="listing-card-four__image">
+                                        <img src="{{ dest.imageUrl }}" alt="{{ dest.name }}">
+                                        <div class="listing-card-four__btn-group">
+                                            <div class="listing-card-four__featured">Featured</div>
+                                        </div><!-- /.listing-card-four__btn-group -->
+                                        <a href="/destination-details?dest_id={{ dest.destination_id }}" onclick="event.preventDefault(); saveClick('{{ dest.destination_id }}');" class="listing-card-four__image__overly">
+                                        </a>
+                                    </div><!-- /.listing-card-four__image -->
+        
+                                    <ul class="listing-card-four__meta list-unstyled">
+                                        <li>
+                                            <a href="/destination-details?dest_id={{ dest.destination_id }}" onclick="event.preventDefault(); saveClick('{{ dest.destination_id }}');">
+                                                <span class="listing-card-four__meta__icon">
+                                                    <i class="fa-solid fa-temperature-half"></i>
+                                                </span> 
+                                                {{ dest.weatherType if dest.weatherType else "N/A" }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/destination-details?dest_id={{ dest.destination_id }}" onclick="event.preventDefault(); saveClick('{{ dest.destination_id }}');">
+                                                <span class="listing-card-four__meta__icon">
+                                                    <i class="icon-calendar"></i>
+                                                </span> 
+                                                {{ dest.nights if dest.nights else "N/A" }}
+                                            </a>
+                                        </li>
+                                    </ul><!-- /.listing-card-four__meta -->
+        
+                                    <div class="listing-card-four__content">
+                                        <h3 class="listing-card-four__title">
+                                            <a href="/destination-details?dest_id={{ dest.destination_id }}" onclick="event.preventDefault(); saveClick('{{ dest.destination_id }}');">{{ dest.name }}</a>
+                                        </h3><!-- /.listing-card-four__title -->
+        
+                                        <div class="listing-card-four__content__btn">
+                                            <div class="listing-card-four__price">
+                                                <span class="listing-card-four__price__sub">Price</span>
+                                                <span class="listing-card-four__price__number">₹{{ dest.price if dest.price else "N/A" }}</span>
+                                            </div><!-- /.listing-card-four__price -->
+
+                                            <a href="/destination-details?dest_id={{ dest.destination_id }}" onclick="event.preventDefault(); saveClick('{{ dest.destination_id }}');" class="listing-card-four__btn gotur-btn">
+                                         
+                                                View Details 
+                                                <span class="icon"><i class="icon-right"></i></span>
+                                            </a>
+                                        </div><!-- /.listing-card-four__content__btn -->
+                                    </div><!-- /.listing-card-four__content -->
+                                </div><!-- /.listing-card-four -->
+                            </div><!-- /.col-lg-4 col-md-6 -->
+                        {% endfor %}
+                    {% else %}
+                        <p>No Destination Found</p>
+                    {% endif %}
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.tour-listing-page -->
+
+
+
+
+        <script>
+            function saveClick(destinationId) {
+                fetch('/save_click', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ destination_id: destinationId })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        window.location.href = data.redirect_url;  // Redirect on success
+                    } else {
+                        console.error("Error:", data.message);
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            }
+            
+        </script>
+        
+
+
+      
+        
+        
+        {% endblock body %}

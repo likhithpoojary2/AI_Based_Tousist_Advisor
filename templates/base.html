@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from pixydrops.com/gotur-html/index-one-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Feb 2025 07:47:47 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="bracket-web">
+    <meta name="description" content="Gotur is a modern travel & tour booking HTML Template. It is perfect for travel agencies, tour operators, trip holiday booking websites, adventure and booking companies looking for a unique and intuitive search function and all other travel & tourism websites and businesses.">
+    <title>Home One || Gotur || Travel & Tour HTML Template</title>
+
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../static/assets/images/favicons/site.webmanifest">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../static/assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/assets/vendors/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../static/assets/vendors/animate/animate.min.css">
+    <link rel="stylesheet" href="../static/assets/vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../static/assets/vendors/jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" href="../static/assets/vendors/jarallax/jarallax.css">
+    <link rel="stylesheet" href="../static/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css">
+    <link rel="stylesheet" href="../static/assets/vendors/nouislider/nouislider.min.css">
+    <link rel="stylesheet" href="../static/assets/vendors/nouislider/nouislider.pips.css">
+    <link rel="stylesheet" href="../static/assets/vendors/gotur-icons/style.css">
+    <link rel="stylesheet" href="../static/assets/vendors/daterangepicker-master/daterangepicker.css">
+    <link rel="stylesheet" href="../static/assets/vendors/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/assets/vendors/owl-carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../static/assets/vendors/slick-carousel/slick.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="../static/assets/css/gotur.css">
+</head>
+
+<body class="custom-cursor">
+
+    <!-- <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div> -->
+
+    <div class="preloader">
+        <div class="preloader__image" style="background-image: url(../static/assets/images/loader.png);"></div>
+    </div>
+    <!-- /.preloader -->
+    <div class="page-wrapper">
+
+
+
+        <header class="main-header main-header--one sticky-header sticky-header--normal">
+            <div class="container-fluid">
+                <div class="main-header__inner">
+                    <div class="main-header__logo logo-retina">
+                        <!-- <a href="/"><img src="../static/assets/images/logo-dark.png" alt="gotur HTML" width="160" height="45"></a> -->
+                    </div><!-- /.main-header__logo -->
+                    <div class="main-header__right">
+                        <nav class="main-header__nav main-menu">
+                            <ul class="main-menu__list one-page-scroll-menu">
+                                <li class="dropdown megamenu scrollToLink current">
+                                    <a href="/">Home</a>
+                                    
+                                </li>
+                                <li class="scrollToLink"><a href="/about">About</a></li>
+                                <li class="scrollToLink"><a href="/destination">Destination</a></li>
+                                <li class="scrollToLink"><a href="/popularity">Popular Tours</a></li>
+                                <!-- <li class="scrollToLink"><a href="#testimonials">Testimonials</a></li>
+                                <li class="scrollToLink"><a href="#blog">Blog</a></li> -->
+                                <li class="scrollToLink"><a href="/logout">Logout</a></li>
+                            </ul>
+                        </nav><!-- /.main-header__nav -->
+                       
+                        <div class="main-header__btn-popup main-header__element__btn">
+                            <i class="icon-menu-bar"></i>
+                        </div><!-- /.mobile-nav__toggler -->
+                        <a href="/contact" class="gotur-btn main-header__btn">get in touch <i class="icon-paper-plane"></i></a>
+                        <div class="mobile-nav__btn mobile-nav__toggler">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div><!-- /.mobile-nav__toggler -->
+                    </div><!-- /.main-header__right -->
+                </div><!-- /.main-header__inner -->
+            </div><!-- /.container-fluid -->
+        </header><!-- /.main-header -->
+
+
+        {% if response %}
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "{{ response }}",
+                showConfirmButton: false,
+                timer: 2000
+            });
+        </script>
+    {% endif %}
+
+
+    {% if error %}
+    <script>
+        Swal.fire({
+            icon: "error",
+            title: "{{ error }}",
+            showConfirmButton: false,
+            timer: 2000
+        });
+    </script>
+{% endif %}
+
+        {% block body %}{% endblock body %}
+
+
+        <footer class="main-footer">
+            <div class="main-footer__top">
+                <div class="container">
+                    <div class="main-footer__top__inner wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="footer-widget__logo logo-retina">
+                            <a href="/"><img src="../static/assets/images/logo-light.png" width="158" height="45" alt="gotur logo"></a>
+                        </div><!-- /.footer-widget__logo -->
+                        <ul class="list-unstyled footer-widget__list">
+                            <li>
+                                <div class="footer-widget__list__icon"><i class="icon-email"></i></div><!-- /.footer-widget__list__icon -->
+                                <div class="footer-widget__list__content">
+                                    <span class="footer-widget__list__subtitle">send email</span>
+                                    <a href="mailto:info@company.com">go-tour@gmail.com</a>
+                                </div><!-- /.footer-widget__list__content -->
+                            </li>
+                            <li>
+                                <div class="footer-widget__list__icon"><i class="icon-telephone"></i></div><!-- /.footer-widget__list__icon -->
+                                <div class="footer-widget__list__content">
+                                    <span class="footer-widget__list__subtitle">call agent</span>
+                                    <a href="tel:+208-666-0112">+91 123 654 900</a>
+                                </div><!-- /.footer-widget__list__content -->
+                            </li>
+                           
+                        </ul><!-- /.list-unstyled -->
+                    </div><!-- /.main-footer__top__inner -->
+                </div><!-- /.container -->
+            </div><!-- /.main-footer__top -->
+            <div class="main-footer__bottom">
+                <div class="container">
+                    <div class="main-footer__bottom__inner" style="text-align: center;">
+    <p class="main-footer__copyright" style="margin: 0 auto;">
+        &copy; Copyright <span class="dynamic-year">2025</span> by gotur.com.
+    </p>
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+        <span class="scroll-to-top__wrapper">
+            <i class="fas fa-arrow-up"></i>
+        </span>
+    </a>
+</div>
+
+                </div><!-- /.container -->
+            </div><!-- /.main-footer__bottom -->
+        </footer><!-- /.main-footer -->
+    </div><!-- /.page-wrapper -->
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div><!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box logo-retina">
+                <a href="/" aria-label="logo image"><img src="../static/assets/images/logo-light.png" width="158" alt="logo"></a>
+            </div><!-- /.logo-box -->
+            <div class="mobile-nav__container"></div><!-- /.mobile-nav__container -->
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <span class="mobile-nav__contact__icon">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                    <a href="mailto:needhelp@gotur.com">needhelp@gotur.com</a>
+                </li>
+                <li>
+                    <span class="mobile-nav__contact__icon">
+                        <i class="fa fa-phone-alt"></i>
+                    </span>
+                    <a href="tel:+9156980036420">+91 5698 0036 420</a>
+                </li>
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__social">
+                <a href="https://facebook.com/"> <i class="icon-facebook" aria-hidden="true"></i> <span class="sr-only">Facebook</span></a>
+                <a href="https://twitter.com/"> <i class="icon-twitter" aria-hidden="true"></i> <span class="sr-only">Twitter</span></a>
+                <a href="https://instagram.com/"> <i class="icon-linkedin" aria-hidden="true"></i> <span class="sr-only">Linked In</span></a>
+                <a href="https://youtube.com/"> <i class="icon-youtube" aria-hidden="true"></i> <span class="sr-only">Youtube</span></a>
+            </div><!-- /.mobile-nav__social -->
+        </div><!-- /.mobile-nav__content -->
+    </div><!-- /.mobile-nav__wrapper -->
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div><!-- /.search-popup__overlay -->
+        <div class="search-popup__content">
+            <form role="search" method="get" class="search-popup__form" action="#">
+                <input type="text" id="search" placeholder="Search Here...">
+                <button type="submit" aria-label="search submit" class="gotur-btn"> <i class="icon-search"></i> </button>
+            </form>
+        </div><!-- /.search-popup__content -->
+    </div><!-- /.search-popup -->
+    <div class="header-right-sidebar">
+        <div class="header-right-sidebar__overlay header-right-sidebar__toggler"></div>
+        <div class="header-right-sidebar__content">
+            <span class="header-right-sidebar__close header-right-sidebar__toggler"><i class="fa fa-times"></i></span>
+            <div class="header-right-sidebar__logo-box">
+                <a href="/" aria-label="logo image"> <img src="../static/assets/images/logo-landing.png" width="158" alt="gotur"> </a>
+            </div>
+            <div class="header-right-sidebar__container">
+               <div class="header-right-sidebar__container__about wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
+    <h3 class="header-right-sidebar__container__title">Your Smart AI Travel Guide & Tour Planner</h3>
+    <p class="header-right-sidebar__container__text">Discover your perfect getaway with our AI-powered travel platform that recommends personalized destinations, smart itineraries, and real-time navigation—all designed to make your journey smooth and unforgettable.</p>
+</div>
+
+                <div class="header-right-sidebar__container__contact">
+                    <h3 class="header-right-sidebar__container__title">Contact Us</h3>
+                    <ul class="header-right-sidebar__container__list list-unstyled">
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                            <div class="header-right-sidebar__container__icon">
+                                <i class="icon-email"></i>
+                            </div>
+                            <div class="header-right-sidebar__container__list__content">
+                                <span class="header-right-sidebar__container__list__title">send email</span>
+                                <a href="#">info@company.com</a>
+                            </div>
+                        </li>
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                            <div class="header-right-sidebar__container__icon">
+                                <i class="icon-telephone"></i>
+                            </div>
+                            <div class="header-right-sidebar__container__list__content">
+                                <span class="header-right-sidebar__container__list__title">call agent</span>
+                                <a href="tel:+91-123-654-900">+91 123 654 900</a>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+             
+            </div>
+        </div><!-- /.header-right-sidebar__content -->
+    </div>
+
+
+    <div id="scroll-top" class="scroll-top">
+        <span id="scroll-top-value" class="scroll-top-value"></span>
+    </div>
+
+    <script src="../static/assets/vendors/jquery/jquery-3.7.1.min.js"></script>
+    <script src="../static/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="../static/assets/vendors/jarallax/jarallax.min.js"></script>
+    <script src="../static/assets/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="../static/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="../static/assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="../static/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="../static/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="../static/assets/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../static/assets/vendors/nouislider/nouislider.min.js"></script>
+    <script src="../static/assets/vendors/wnumb/wNumb.min.js"></script>
+    <script src="../static/assets/vendors/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="../static/assets/vendors/slick-carousel/slick.min.js"></script>
+    <script src="../static/assets/vendors/wow/wow.js"></script>
+    <script src="../static/assets/vendors/imagesloaded/imagesloaded.min.js"></script>
+    <script src="../static/assets/vendors/isotope/isotope.js"></script>
+    <script src="../static/assets/vendors/countdown/countdown.min.js"></script>
+    <script src="../static/assets/vendors/daterangepicker-master/moment.min.js"></script>
+    <script src="../static/assets/vendors/daterangepicker-master/daterangepicker.js"></script>
+    <script src="../static/assets/vendors/jquery-circleType/jquery.circleType.js"></script>
+    <script src="../static/assets/vendors/jquery-lettering/jquery.lettering.min.js"></script>
+
+    <!-- GSAP -->
+    <script src="../static/assets/vendors/gsap/gsap.js"></script>
+    <script src="../static/assets/vendors/gsap/scrollTrigger.min.js"></script>
+    <script src="../static/assets/vendors/gsap/splittext.min.js"></script>
+    <script src="../static/assets/vendors/gsap/gotur-gsap.js"></script>
+
+    <!-- template js -->
+    <script src="../static/assets/js/gotur.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://kit.fontawesome.com/9fdb832e2c.js" crossorigin="anonymous"></script>
+</body>
+
+
+<!-- Mirrored from pixydrops.com/gotur-html/index-one-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Feb 2025 07:47:47 GMT -->
+</html>

@@ -1,0 +1,646 @@
+{% extends "base.html" %}
+{% block body %}
+
+        <section class="main-slider-one" id="home">
+            <div class="main-slider-one__item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-7 col-lg-8 col-md-10">
+                            <div class="main-slider-one__content">
+                                <h5 class="main-slider-one__sub-title main-three bw-split-in-top">Discover Your</h5><!-- slider-sub-title -->
+                                <h2 class="main-slider-one__title main-three bw-split-in-down">Next Step <br> Destination</h2><!-- slider-title -->
+                                <p class="main-slider-one__text main-three bw-split-in-down">
+Discover your next adventure with GoTour – an AI-powered travel companion that recommends destinations tailored to your interests. Get personalized suggestions, real-time images, and smart travel insights.</p>
+
+                            </div><!-- /.main-slider-one__content -->
+                        </div><!-- /.col-xl-6 -->
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+                <div class="main-slider-one__destinations">
+                    <div class="container">
+                        <div class="destinations-two__inner">
+                            <div class="destinations-two__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme" data-owl-nav-prev=".main-slider-one__carousel__nav--left" data-owl-nav-next=".main-slider-one__carousel__nav--right" data-owl-options='{
+                            "items": 1,
+                            "margin": 30,
+                            "loop": true,
+                            "smartSpeed": 700,
+                            "nav": false,
+                            "dots": false,
+                            "autoplay": true,
+                            "responsive": {
+                                "0": {
+                                    "items": 1
+                                },
+                                "575": {
+                                    "items": 2
+                                },
+                                "768": {
+                                    "items": 2
+                                },
+                                "992": {
+                                    "items": 3
+                                }
+                            }
+                        }'>
+                                <div class="item">
+                                    <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                        <div class="destinations-card-two__thumb">
+                                            <img src="../static/assets/images/main-slider/hero-1-1-image.jpg" alt="destinations image">
+                                        </div><!-- /.destinations-card-two__thumb -->
+                                    </div><!-- /.destinations-card-two -->
+                                </div><!-- /.item -->
+                                <div class="item">
+                                    <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                        <div class="destinations-card-two__thumb">
+                                            <img src="../static/assets/images/main-slider/hero-1-2-image.jpg" alt="destinations image">
+                                        </div><!-- /.destinations-card-two__thumb -->
+                                    </div><!-- /.destinations-card-two -->
+                                </div><!-- /.item -->
+                                <div class="item">
+                                    <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                        <div class="destinations-card-two__thumb">
+                                            <img src="../static/assets/images/main-slider/hero-1-3-image.jpg" alt="destinations image">
+                                        </div><!-- /.destinations-card-two__thumb -->
+                                    </div><!-- /.destinations-card-two -->
+                                </div><!-- /.item -->
+                                <div class="item">
+                                    <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                        <div class="destinations-card-two__thumb">
+                                            <img src="../static/assets/images/main-slider/hero-1-1-image.jpg" alt="destinations image">
+                                        </div><!-- /.destinations-card-two__thumb -->
+                                    </div><!-- /.destinations-card-two -->
+                                </div><!-- /.item -->
+                                <div class="item">
+                                    <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                        <div class="destinations-card-two__thumb">
+                                            <img src="../static/assets/images/main-slider/hero-1-2-image.jpg" alt="destinations image">
+                                        </div><!-- /.destinations-card-two__thumb -->
+                                    </div><!-- /.destinations-card-two -->
+                                </div><!-- /.item -->
+                                <div class="item">
+                                    <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                        <div class="destinations-card-two__thumb">
+                                            <img src="../static/assets/images/main-slider/hero-1-3-image.jpg" alt="destinations image">
+                                        </div><!-- /.destinations-card-two__thumb -->
+                                    </div><!-- /.destinations-card-two -->
+                                </div><!-- /.item -->
+                            </div><!-- /.destinations-two__carousel -->
+                        </div><!-- /.destinations-two__inner -->
+                    </div><!-- /.container -->
+                    <div class="main-slider-one__destinations__hover">
+                        <img src="../static/assets/images/shapes/hero-1-1-hover.png" alt="destinations image">
+                    </div><!-- /.destinations-card-two__group-card -->
+                </div><!-- /.main-slider-one__dep -->
+                <div class="main-slider-one__bottom__nav">
+                    <button class="main-slider-one__carousel__nav--left"><span class="icon-arrow-left"></span></button>
+                    <button class="main-slider-one__carousel__nav--right"><span class="icon-arrow-right"></span></button>
+                </div>
+                <div class="main-slider-one__action-form">
+                    <div class="container">
+                        <div class="main-slider-one__form">
+                            <div class="banner-form wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                                <div class="container">
+                                    <form class="banner-form__wrapper" action="/destination" method="post">
+                                        <div class="banner-form row gutter-x-30 align-items-center">
+                                            <div class="banner-form__control banner-form__col--1">
+                                              
+                                                <label for="location">Location</label>
+                                             
+                                                <select name="location" id="location" class="selectpicker" data-live-search="true" data-width="100%" title="Select a destination">
+                                                  <option value="munnar">Munnar</option>
+                                                  <option value="rajahmundry">Rajahmundry</option>
+                                                  <option value="ayodhya">Ayodhya</option>
+                                                  <option value="dubai">Dubai</option>
+                                                  <option value="dandeli">Dandeli</option>
+                                                  <option value="manali">Manali</option>
+                                                  <option value="periyar">Periyar</option>
+                                                  <option value="khandala">Khandala</option>
+                                                  <option value="vrindavan">Vrindavan</option>
+                                                  <option value="new-delhi">New Delhi</option>
+                                                  <option value="abu-dhabi">Abu Dhabi</option>
+                                                  <option value="kushalnagar">Kushalnagar</option>
+                                                  <option value="morena">Morena</option>
+                                                  <option value="kovalam">Kovalam</option>
+                                                  <option value="rajasthan">Rajasthan</option>
+                                                  <option value="maldives">Maldives</option>
+                                                  <option value="mahabaleshwar">Mahabaleshwar</option>
+                                                  <option value="chennai">Chennai</option>
+                                                  <option value="vengurla">Vengurla</option>
+                                                  <option value="maafushi">Maafushi</option>
+                                                  <option value="hampi">Hampi</option>
+                                                  <option value="varkala">Varkala</option>
+                                                  <option value="pushkar">Pushkar</option>
+                                                  <option value="negombo">Negombo</option>
+                                                  <option value="sri-lanka">Sri Lanka</option>
+                                                  <option value="jaisalmer">Jaisalmer</option>
+                                                  <option value="galle">Galle</option>
+                                                  <option value="unawatuna">Unawatuna</option>
+                                                  <option value="kukke">Kukke</option>
+                                                  <option value="devgad">Devgad</option>
+                                                  <option value="gulmarg">Gulmarg</option>
+                                                  <option value="jaipur">Jaipur</option>
+                                                  <option value="ellora">Ellora</option>
+                                                  <option value="nathdwara">Nathdwara</option>
+                                                  <option value="kanipakam">Kanipakam</option>
+                                                  <option value="ramanagara">Ramanagara</option>
+                                                  <option value="araku">Araku</option>
+                                                  <option value="ramoji-film-city">Ramoji Film City</option>
+                                                  <option value="malvan">Malvan</option>
+                                                  <option value="mirissa">Mirissa</option>
+                                                  <option value="andhra-pradesh">Andhra Pradesh</option>
+                                                  <option value="madikeri">Madikeri</option>
+                                                  <option value="tarkarli">Tarkarli</option>
+                                                  <option value="sikkim">Sikkim</option>
+                                                  <option value="agra">Agra</option>
+                                                  <option value="lumbini">Lumbini</option>
+                                                  <option value="bahrain">Bahrain</option>
+                                                  <option value="thailand">Thailand</option>
+                                                  <option value="courtallam">Courtallam</option>
+                                                  <option value="andaman-and-nicobar">Andaman and Nicobar</option>
+                                                  <option value="mirzapur">Mirzapur</option>
+                                                  <option value="united-arab-emirates">United Arab Emirates</option>
+                                                  <option value="lambasingi">Lambasingi</option>
+                                                  <option value="gokarna">Gokarna</option>
+                                                  <option value="himachal-pradesh">Himachal Pradesh</option>
+                                                  <option value="nuwara-eliya">Nuwara Eliya</option>
+                                                  <option value="chikmagalur">Chikmagalur</option>
+                                                  <option value="shimla">Shimla</option>
+                                                  <option value="bangkok">Bangkok</option>
+                                                  <option value="sakleshpur">Sakleshpur</option>
+                                                  <option value="udvada">Udvada</option>
+                                                  <option value="ramtek">Ramtek</option>
+                                                  <option value="konark">Konark</option>
+                                                  <option value="sringeri">Sringeri</option>
+                                                  <option value="somnath">Somnath</option>
+                                                  <option value="lalitpur">Lalitpur</option>
+                                                  <option value="srikalahasti">Srikalahasti</option>
+                                                  <option value="varanasi">Varanasi</option>
+                                                  <option value="chitwan">Chitwan</option>
+                                                  <option value="shimoga">Shimoga</option>
+                                                  <option value="shivpuri">Shivpuri</option>
+                                                  <option value="chiang-mai">Chiang Mai</option>
+                                                  <option value="rajkot">Rajkot</option>
+                                                  <option value="maharashtra">Maharashtra</option>
+                                                  <option value="west-bengal">West Bengal</option>
+                                                  <option value="mathura">Mathura</option>
+                                                  <option value="lataguri">Lataguri</option>
+                                                  <option value="ooty">Ooty</option>
+                                                  <option value="ujjain">Ujjain</option>
+                                                  <option value="ratnagiri">Ratnagiri</option>
+                                                  <option value="uttarakhand">Uttarakhand</option>
+                                                  <option value="rishikesh">Rishikesh</option>
+                                                  <option value="kanyakumari">Kanyakumari</option>
+                                                  <option value="auroville">Auroville</option>
+                                                  <option value="horsley-hills">Horsley Hills</option>
+                                                  <option value="haridwar">Haridwar</option>
+                                                  <option value="palani">Palani</option>
+                                                  <option value="pattadakal">Pattadakal</option>
+                                                  <option value="puri">Puri</option>
+                                                  <option value="lavasa">Lavasa</option>
+                                                  <option value="alappuzha">Alappuzha</option>
+                                                  <option value="palakkad">Palakkad</option>
+                                                  <option value="colva">Colva</option>
+                                                  <option value="mysuru">Mysuru</option>
+                                                  <option value="barsana">Barsana</option>
+                                                  <option value="sillery-gaon">Sillery Gaon</option>
+                                                </select>
+                                                
+                                            </div>
+                                            <div class="banner-form__control banner-form__col--2">
+                                           
+                                                <label for="type2">Weather Type</label>
+                                                <select name="weather" id="weather" class="selectpicker" multiple data-live-search="true" data-width="100%" title="Select Weather Preferences">
+                                                    <option value="Colder">Colder</option>
+                                                    <option value="Warmer">Warmer</option>
+                                                    <option value="Snow">Snow</option>
+                                                    <option value="No Snow">No Snow</option>
+                                                    <option value="Rain">Rain</option>
+                                                    <option value="No Rain">No Rain</option>
+                                                    <option value="Pollution Free">Pollution Free</option>
+                                                    <option value="No Pollution">No Pollution</option>
+                                                    <option value="Hot">Hot</option>
+                                                    <option value="Dry">Dry</option>
+                                                </select>
+                                                
+                                            </div>
+                                            <div class="banner-form__control banner-form__col--3">
+                                    <label for="budget">Budget</label>
+  <input
+    id="budget"
+    type="number"
+    name="budget"
+    placeholder="Enter your budget"
+    style="width: 100%; padding: 10px 12px; box-sizing: border-box; appearance: textfield; -moz-appearance: textfield; -webkit-appearance: textfield; border: 1px solid #ccc; border-radius: 4px;"
+  >
+</div>
+
+
+                                         
+                                            <div class="banner-form__control banner-form__button banner-form__col--5">
+                                                <button class="gotur-btn" type="submit">Search</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- banner-form -->
+                        </div><!-- /.main-slider-four__form -->
+                    </div><!-- /.container -->
+                </div><!-- /.main-slider-one__action-form -->
+                <div class="main-slider-one__element">
+                    <img src="../static/assets/images/shapes/hero-1-2-hover.png" alt="element">
+                </div><!-- /.main-slider-one__element -->
+                <div class="main-slider-one__element-one">
+                    <img src="../static/assets/images/shapes/hero-shapr-1-2-2.png" alt="element">
+                </div><!-- /.main-slider-one__element -->
+                <div class="main-slider-one__element-two">
+                    <img src="../static/assets/images/shapes/hero-shapr-1-3.png" alt="element">
+                </div><!-- /.main-slider-one__element -->
+                <div class="main-slider-one__element-three">
+                    <img src="../static/assets/images/shapes/hero-shapr-1-2-1.png" alt="element">
+                </div><!-- /.main-slider-one__element -->
+                <div class="main-slider-one__element-four"></div><!-- /.main-slider-one__element -->
+                <div class="main-slider-one__element-five">
+                    <img src="../static/assets/images/shapes/hero-shapr-1-2-a.png" alt="element">
+                </div><!-- /.main-slider-one__element -->
+            </div><!-- /.main-slider-one__item -->
+        </section><!-- /.main-slider-one -->
+
+
+
+
+
+        {% if collab %}
+        <section class="popular-destination section-space" id="destination">
+            <div class="container">
+                <div class="sec-title text-center">
+                    <h6 class="sec-title__tagline bw-split-in-right">Popular Destination</h6><!-- /.sec-title__tagline -->
+                    <h3 class="sec-title__title bw-split-in-left">Recommended Destinations<span> for You </span></h3><!-- /.sec-title__title -->
+                </div><!-- /.sec-title -->
+
+
+                <div class="row gutter-x-22 gutter-y-22">
+
+
+
+                    {% for item in collab %}
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                        <div class="destinations-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                            <div class="destinations-card__thumb">
+                                <img src="{{ item.imageUrl }}" alt="destinations image">
+                                <div class="destinations-card__group-card">
+                                    <p class="destinations-card__group-card__text">₹{{ item.price }}</p>
+                                    <p class="destinations-card__group-card__text"> {{ item.nights }}</p>
+                                </div><!-- /.destinations-card__group-card -->
+                            </div><!-- /.destinations-card__thumb -->
+                            <h4 class="destinations-card__title"><a href="destination-details.html">{{ item.name }}</a></h4><!-- /.destinations-card__title -->
+                        </div><!-- /.destinations-card -->
+                    </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                    
+
+                    {% endfor %}
+
+
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+            <div class="popular-destination__element">
+                <img src="../static/assets/images/shapes/des-1-1.png" alt>
+            </div><!-- /.popular-destination__element -->
+        </section><!-- /.popular-destination -->
+
+
+
+        {% endif %}
+
+        {% if collab %}
+        
+        <section class="destination-filter section-space" id="destination">
+            <div class="container">
+                <div class="destination-filter__top">
+                    <div class="sec-title text-center">
+                        <h6 class="sec-title__tagline bw-split-in-right">Best Travel Picks Based on Your Interests</h6><!-- /.sec-title__tagline -->
+                        <h3 class="sec-title__title bw-split-in-left">Your Next Adventure  <span> Awaits</span></h3><!-- /.sec-title__title -->
+                    </div><!-- /.sec-title -->
+                    <p class="destination-filter__top__text">
+Explore AI-curated travel destinations that match your preferences – from sun-soaked beaches to cool mountain escapes. GoTour blends real-time data, smart recommendations, and vivid imagery to help you discover places that truly resonate with your travel style.
+</p>
+
+                </div><!-- /.destination-filter__top -->
+                <div class="tabs-box">
+
+
+
+
+                    
+                    <div class="tabs-content">
+                        <div class="item tab" id="itemOne">
+                            <div class="row gutter-y-20 gutter-x-20">
+
+
+
+
+                                
+
+                            
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                        <div class="destination-card-one__thumb">
+                                            <img src="../static/assets/images/destination/destination-1-1.jpg" alt="destination">
+                                            <a href="#" class="destination-card-one__overly"></a>
+                                        </div><!-- /.destination-card-one__thumb -->
+                                        <div class="destination-card-one__content">
+                                            <h3 class="destination-card-one__title"><a href="destination-details.html">Bangkok</a></h3><!-- /.destination-card-one__title -->
+                                        </div><!-- /.destination-one__content -->
+                                    </div><!-- /.destination-one -->
+                                </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+
+
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                        <div class="destination-card-one__thumb">
+                                            <img src="../static/assets/images/destination/destination-1-1.jpg" alt="destination">
+                                            <a href="#" class="destination-card-one__overly"></a>
+                                        </div><!-- /.destination-card-one__thumb -->
+                                        <div class="destination-card-one__content">
+                                            <h3 class="destination-card-one__title"><a href="destination-details.html">Bangkok</a></h3><!-- /.destination-card-one__title -->
+                                        </div><!-- /.destination-one__content -->
+                                    </div><!-- /.destination-one -->
+                                </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                        <div class="destination-card-one__thumb">
+                                            <img src="../static/assets/images/destination/destination-1-1.jpg" alt="destination">
+                                            <a href="#" class="destination-card-one__overly"></a>
+                                        </div><!-- /.destination-card-one__thumb -->
+                                        <div class="destination-card-one__content">
+                                            <h3 class="destination-card-one__title"><a href="destination-details.html">Bangkok</a></h3><!-- /.destination-card-one__title -->
+                                        </div><!-- /.destination-one__content -->
+                                    </div><!-- /.destination-one -->
+                                </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+
+
+                                
+
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                        <div class="destination-card-one__thumb">
+                                            <img src="../static/assets/images/destination/destination-1-1.jpg" alt="destination">
+                                            <a href="#" class="destination-card-one__overly"></a>
+                                        </div><!-- /.destination-card-one__thumb -->
+                                        <div class="destination-card-one__content">
+                                            <h3 class="destination-card-one__title"><a href="destination-details.html">Bangkok</a></h3><!-- /.destination-card-one__title -->
+                                        </div><!-- /.destination-one__content -->
+                                    </div><!-- /.destination-one -->
+                                </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                                
+                                
+                           
+                            </div><!-- /.row -->
+                        </div><!-- /.item -->
+                       
+                    </div><!-- /.tabs-content -->
+
+
+
+
+
+                </div><!-- /.tabs-box -->
+            </div><!-- /.container -->
+            <div class="destination-filter__element">
+                <img src="../static/assets/images/shapes/plan.png" alt>
+            </div><!-- /.destination-filter__element -->
+            <div class="destination-filter__element-two">
+                <img src="../static/assets/images/shapes/monjil.png" alt>
+            </div><!-- /.destination-filter__element -->
+        </section><!-- /.destination-filter -->
+        {% endif %}
+        
+
+        <section class="feature-package feature-package--two" id="guide">
+            <div class="container">
+                <div class="feature-package__top">
+                    <div class="row align-items-end">
+                        <div class="col-lg-8">
+                            <div class="sec-title ">
+                                <h6 class="sec-title__tagline bw-split-in-right">Handpicked Just for You</h6><!-- /.sec-title__tagline -->
+                                <h3 class="sec-title__title bw-split-in-left">Unmissable Tours You’ll  <span>Love</span></h3><!-- /.sec-title__title -->
+                            </div><!-- /.sec-title -->
+                        </div><!-- /.col-lg-8 -->
+                        <div class="col-lg-4">
+                            <div class="feature-package__bottom__nav">
+                                <button class="feature-package__carousel__nav--left"><span class="icon-arrow-left"></span></button>
+                                <button class="feature-package__carousel__nav--right"><span class="icon-arrow-right"></span></button>
+                            </div>
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+                </div><!-- /.feature-package__top -->
+            </div><!-- /.container -->
+            <div class="container-fluid">
+                <div class="feature-package__inner">
+                    <div class="feature-package__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme" data-owl-nav-prev=".feature-package__carousel__nav--left" data-owl-nav-next=".feature-package__carousel__nav--right" data-owl-options='{
+                    "items": 1,
+                    "margin": 30,
+                    "loop": false,
+                    "smartSpeed": 700,
+                    "nav": false,
+                    "dots": false,
+                    "autoplay": false,
+                    "responsive": {
+                        "0": {
+                            "items": 1
+                        },
+                        "576": {
+                            "items": 2
+                        },
+                        "768": {
+                            "items": 2
+                        },
+                        "992": {
+                            "items": 3
+                        },
+                        "1199": {
+                            "items": 3
+                        },
+                        "1500": {
+                            "items": 4
+                        }
+                    }
+                }'>
+
+
+
+
+
+                
+    {% if recommendations %}
+
+    {% for dest in recommendations %}
+
+                        <div class="item">
+                            <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                <div class="listing-card-four__image">
+                                    <img src="{{ dest.imageUrl }}" alt="{{ dest.name }}">
+                                    <div class="listing-card-four__btn-group">
+
+
+                                        <div class="listing-card-four__featured">{{ dest.weatherType }}</div><!-- /.listing-card-four__featured -->
+
+                                    </div><!-- /.listing-card-four__btn-group -->
+                                    <div class="listing-card-four__btns">
+                                        <a href="#"><i class="far fa-heart"></i></a>
+                                        <div class="listing-card-four__btns__hover">
+                                            <a href="#" class="listing-card-four__popup card__popup" data-gallery-options='{
+                    "items": [
+                        {
+                            "src": "../static/assets/images/blog/listing-1-1.jpg"
+                        },
+                        {
+                            "src": "../static/assets/images/blog/listing-1-2.jpg"
+                        },
+                        {
+                            "src": "../static/assets/images/blog/listing-1-3.jpg"
+                        }
+                    ],
+                    "gallery": {
+                        "enabled": true
+                    },
+                    "type": "image"
+                }'>
+                                                <span class="icon-image"></span>
+                                            </a>
+                                            <a class="video-popup" href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span class="icon-video"></span></a>
+                                        </div><!-- /.listing-card-four__btns__hover -->
+                                    </div>
+                                    <ul class="listing-card-four__meta list-unstyled">
+                                        <li>
+                                            <a href="tour-listing-details-2.html"> <span class="listing-card-four__meta__icon"> <i class="icon-pin1"></i> </span>{{ dest.slug }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="tour-listing-details-2.html"> <span class="listing-card-four__meta__icon"> <i class="icon-calendar"></i> </span>{{ dest.nights }} Night</a>
+                                        </li>
+                                    </ul><!-- /.listing-card-four__meta -->
+                                    <a href="tour-listing-details-2.html" class="listing-card-four__image__overly"></a>
+                                </div><!-- /.listing-card-four__image -->
+                                <div class="listing-card-four__content">
+                                    <div class="listing-card-four__rating">
+                                        <span>(10 Review)</span>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                    </div><!-- /.listing-card-four__rating -->
+                                    <h3 class="listing-card-four__title"><a href="tour-listing-details-2.html">{{ dest.name }}</a></h3><!-- /.listing-card-four__title -->
+
+                                    <div class="listing-card-four__content__btn">
+                                        <div class="listing-card-four__price">
+                                            <span class="listing-card-four__price__sub">Budget</span>
+                                            <span class="listing-card-four__price__number">₹ {{ dest.price }}</span>
+                                        </div><!-- /.listing-card-four__price -->
+                                        <!-- <a href="tour-listing-details-2.html" class="listing-card-four__btn gotur-btn"> Book Now <span class="icon"><i class="icon-right"></i> </span></a> -->
+                                    </div><!-- /.listing-card-four__content__btn -->
+                                </div><!-- /.listing-card-four__content -->
+                            </div><!-- /.listing-card-four -->
+                        </div><!-- /.item -->
+  {% endfor %}
+
+
+{% endif %}
+
+
+
+
+
+
+                    </div><!-- /.feature-package__carousel -->
+                </div><!-- /.feature-package__inner -->
+
+            </div><!-- /.container -->
+
+            <div class="feature-package__element">
+                <img src="../static/assets/images/shapes/love-1-2.png" alt>
+            </div><!-- /.feature-package__element -->
+        </section><!-- /.feature-package -->
+
+       
+          
+        <section class="why-choose-one section-space-bottom">
+            <div class="container">
+                <div class="row align-items-center gutter-y-40">
+                    <div class="col-lg-6">
+                        <div class="why-choose-one__thumb wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='400ms'>
+                            <div class="row align-items-center gutter-y-30">
+                                <div class="col-lg-6">
+                                    <div class="why-choose-one__thumb__item-one  ">
+                                        <img src="../static/assets/images/about/about-s-8-2.jpg" alt="image">
+                                    </div><!-- /.why-choose-one__thumb__item -->
+                                    <div class="why-choose-one__thumb__item-one  ">
+                                        <img src="../static/assets/images/about/about-s-8-1.jpg" alt="image">
+                                    </div><!-- /.why-choose-one__thumb__item -->
+                                </div><!-- /.col-lg-6 -->
+                                <div class="col-lg-6">
+                                    <div class="why-choose-one__thumb__item-two  ">
+                                        <img src="../static/assets/images/about/about-8-1.jpg" alt="image">
+                                    </div><!-- /.why-choose-one__thumb__item -->
+                                </div><!-- /.col-lg-6 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.why-choose-one__thumb -->
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-lg-6">
+                        <div class="why-choose-one__content">
+                            <div class="sec-title ">
+                                <h6 class="sec-title__tagline bw-split-in-right">Why Choose Us</h6><!-- /.sec-title__tagline -->
+                                <h3 class="sec-title__title bw-split-in-left"> Get The <span>Best Travel</span> Experience With Gotur</h3><!-- /.sec-title__title -->
+                            </div><!-- /.sec-title -->
+                            <p class="why-choose-one__content__text wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='400ms'>
+GoTour transforms the way you travel by combining AI-powered recommendations, real-time visuals, and personalized insights. Whether you're planning your first trip or your next big adventure, our intelligent system ensures every destination is tailored just for you.
+</p>
+<ul class="why-choose-one__list">
+    <li>
+        <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='200ms'>
+            <div class="why-choose-one__icon">
+                <i class="icon-ai-brain"></i> <!-- Replace with AI/brain icon -->
+            </div>
+            <h5 class="why-choose-one__title">AI-Powered Recommendations</h5>
+        </div>
+    </li>
+    <li>
+        <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='400ms'>
+            <div class="why-choose-one__icon">
+                <i class="icon-user-recommend"></i> <!-- Replace with user/group icon -->
+            </div>
+            <h5 class="why-choose-one__title">Personalized Travel Suggestions</h5>
+        </div>
+    </li>
+    <li>
+        <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='600ms'>
+            <div class="why-choose-one__icon">
+                <i class="icon-image-search"></i> <!-- Replace with image/search icon -->
+            </div>
+            <h5 class="why-choose-one__title">Real-Time Visual Previews</h5>
+        </div>
+    </li>
+    <li>
+        <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='800ms'>
+            <div class="why-choose-one__icon">
+                <i class="icon-gemini"></i> <!-- Replace with a robot/chat/AI icon -->
+            </div>
+            <h5 class="why-choose-one__title">AI-Written Destination Insights</h5>
+        </div>
+    </li>
+</ul>
+
+                        </div><!-- /.why-choose-one__content -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+            <div class="why-choose-one__element">
+                <img src="../static/assets/images/shapes/perasut-1-1.png" alt>
+            </div><!-- /.why-choose-one__element -->
+        </section><!-- /.why-choose-one -->
+
+    
+  
+
+       {% endblock body %}

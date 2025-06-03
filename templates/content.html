@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Recommendation</title>
+    <script>
+        function getRecommendations() {
+            let dest_id = document.getElementById("dest_id").value;
+            if (!dest_id) {
+                alert("Please enter a destination ID");
+                return;
+            }
+            fetch(`/content-recommend?dest_id=${dest_id}`)
+                .then(response => response.json())
+                .then(data => {
+                    let resultDiv = document.getElementById("results");
+                    resultDiv.innerHTML = "<h3>Recommended Destinations:</h3>";
+                    if (data.recommendations) {
+                        data.recommendations.forEach(dest => {
+                            resultDiv.innerHTML += `<p><strong>${dest.name}</strong> - ${dest.weatherType}, Price: ${dest.price}</p>`;
+                        });
+                    } else {
+                        resultDiv.innerHTML += `<p>${data.error}</p>`;
+                    }
+                })
+                .catch(error => console.error("Error fetching recommendations:", error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Travel Recommendation System</h1>
+    <label for="dest_id">Enter Destination ID:</label>
+    <input type="number" id="dest_id" required>
+    <button onclick="getRecommendations()">Get Recommendations</button>
+    <div id="results"></div>
+</body>
+</html>

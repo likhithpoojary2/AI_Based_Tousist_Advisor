@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script>
+        async function fetchTravelData() {
+            const response = await fetch('/travel-data');
+            const data = await response.json();
+            const container = document.getElementById('travel-container');
+            container.innerHTML = ''; // Clear previous data
+
+            if (data.length === 0) {
+                container.innerHTML = "<p class='text-danger'>No travel data found.</p>";
+                return;
+            }
+
+            data.forEach(route => {
+                const routeCard = document.createElement('div');
+                routeCard.className = "card mb-3 shadow-sm";
+                routeCard.innerHTML = `
+                    <div class="card-body">
+                        <h5 class="card-title">${route.route}</h5>
+                        <p class="card-text"><strong>Duration:</strong> ${route.duration} seconds</p>
+                        <p class="card-text"><strong>Total Distance:</strong> ${route.total_distance} km</p>
+                        <p class="card-text"><strong>Price Range:</strong> ${route.price_range.currency} ${route.price_range.low} - ${route.price_range.high}</p>
+                        <a href="${route.booking_url}" target="_blank" class="btn btn-primary">Book Now</a>
+                    </div>
+                `;
+
+                if (route.segments.length > 0) {
+                    const segmentsList = document.createElement('ul');
+                    segmentsList.className = "list-group list-group-flush";
+                    
+                    route.segments.forEach(segment => {
+                        const segmentItem = document.createElement('li');
+                        segmentItem.className = "list-group-item";
+                        segmentItem.innerHTML = `
+                            <strong>Segment:</strong> ${segment.origin} → ${segment.destination}<br>
+                            <strong>Price:</strong> ${segment.price.currency} ${segment.price.amount}<br>
+                            <strong>Duration:</strong> ${segment.duration} seconds<br>
+                            <a href="${segment.booking_url}" target="_blank" class="btn btn-sm btn-success mt-1">Book Segment</a>
+                        `;
+                        segmentsList.appendChild(segmentItem);
+                    });
+
+                    routeCard.appendChild(segmentsList);
+                }
+
+                container.appendChild(routeCard);
+            });
+        }
+    </script>
+</head>
+<body class="bg-light">
+    <div class="container mt-4">
+        <h2 class="text-center">Travel Route Details</h2>
+        <button class="btn btn-primary my-3" onclick="fetchTravelData()">Fetch Travel Data</button>
+        <div id="travel-container"></div>
+    </div>
+</body>
+</html>

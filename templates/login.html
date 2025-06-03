@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block body %}
+<style>
+    .login-page__input-box {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .login-page__input-box i {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: #888;
+        font-size: 16px;
+        z-index: 1;
+    }
+
+    .login-page__input-box input {
+        padding-left: 40px;
+    }
+
+    .pass-field-icon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        z-index: 1;
+    }
+</style>
+
+<section class="page-header">
+    <div class="page-header__bg" style="background-image: url(../static/assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+    <div class="container">
+        <div class="page-header__content">
+            <h2 class="page-header__title bw-split-in-right">Welcome Back</h2>
+            <!-- <ul class="gotur-breadcrumb list-unstyled">
+                <li><a href="index-2.html">Home</a></li>
+                <li><span>Sign In</span></li>
+            </ul> -->
+        </div>
+    </div>
+</section>
+
+<section class="login-page section-space">
+    <div class="container">
+        <div class="row gutter-y-40 align-items-center">
+            <div class="col-lg-6">
+                <div class="login-page__thumb">
+                    <img src="../static/assets/images/resources/login-1-1.jpg" alt="gotur image">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login-page__content wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                    <div class="login-page__content__bg" style="background-image: url(../static/assets/images/shapes/bg-login.png);"></div>
+                    <div class="login-page__main-tab-box tabs-box">
+                        <div class="login-page__top">
+                            <div class="login-page__top__left">
+                                <h2 class="login-page__top__section-title">welcome</h2>
+                                <p class="login-page__top__section-subtitle">sign in your account</p>
+                            </div>
+                            <div class="login-page__top__btn tab-buttons">
+                                <button data-tab="#login" class="tab-btn gotur-btn active-btn">log in</button>
+                                <button data-tab="#register" class="tab-btn gotur-btn">register</button>
+                            </div>
+                        </div>
+                        <div class="tabs-content">
+                            <div class="tabs-content__item tab active-tab" id="login">
+                                <form action="/login" method="post">
+                                    <div class="login-page__group">
+                                        <div class="login-page__input-box">
+                                            <i class="icon-email"></i>
+                                            <input type="email" name="email" placeholder="your email" class="form-control" required>
+                                        </div>
+                                        <div class="login-page__input-box">
+                                            <i class="icon-padlock"></i>
+                                            <input type="password" placeholder="password" class="login-page__password" name="password" required>
+                                            <span class="toggle-password pass-field-icon fa fa-fw fa-eye-slash"></span>
+                                        </div>
+                                        <div class="login-page__input-box">
+                                            <div class="login-page__input-box__btn">
+                                                <button type="submit" class="gotur-btn">log in</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <p class="login-page__form__text">
+                                    Don’t have an account?
+                                    <a href="#" class="tab-btn" data-tab="#register">Register</a>
+                                </p>
+                            </div>
+
+                            <div class="tabs-content__item tab" id="register">
+                                <form action="/register" method="post">
+                                    <div class="login-page__group">
+                                        <div class="login-page__input-box">
+                                            <i class="icon-user"></i>
+                                            <input type="text" name="name" placeholder="your name" required>
+                                        </div>
+                                        <div class="login-page__input-box">
+                                            <i class="icon-email"></i>
+                                            <input type="email" name="email" placeholder="your email" class="form-control" required>
+                                        </div>
+                                        <div class="login-page__input-box">
+                                            <i class="icon-padlock"></i>
+                                            <input type="password" placeholder="password" name="password" class="login-page__password" required>
+                                            <span class="toggle-password pass-field-icon fa fa-fw fa-eye-slash"></span>
+                                        </div>
+                                        <div class="login-page__input-box">
+                                            <div class="login-page__input-box__btn">
+                                                <button type="submit" class="gotur-btn">register</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <p class="login-page__form__text">
+                                    Already have an account?
+                                    <a href="#" class="tab-btn" data-tab="#login">Log in</a>
+                                </p>
+
+                                <script>
+                                    document.querySelectorAll('.tab-btn').forEach(btn => {
+                                        btn.addEventListener('click', function (e) {
+                                            e.preventDefault();
+                                            const target = document.querySelector(this.dataset.tab);
+                                            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active-tab'));
+                                            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active-btn'));
+                                            target.classList.add('active-tab');
+                                            this.classList.add('active-btn');
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock body %}

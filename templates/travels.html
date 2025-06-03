@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+{% block body %}
+
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<!-- Bootstrap Icons (Optional) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  .map-container {
+    height: 400px;
+    width: 100%;
+  }
+
+  .card {
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-title {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-body p {
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    border-radius: 50px;
+  }
+
+  .btn-sm {
+    padding: 0.25rem 0.75rem;
+  }
+
+  .product-list__item {
+    border-left: 5px solid orange;
+  }
+
+  .page-header__title {
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
+  }
+
+  .section-space {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .card.shadow-sm.h-100 {
+    background-color: #fdfdfd;
+    border-left: 4px solid #ffc107;
+  }
+
+  .card-body h5 i {
+    margin-right: 5px;
+    color: #ff9800;
+  }
+
+  .breadcrumb-item a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+
+<section class="page-header py-5">
+  <div class="page-header__bg" style="background-image: url(../static/assets/images/backgrounds/page-header-bg-1-1.jpg); background-size: cover; background-position: center;"></div>
+  <div class="container text-white text-center">
+    <!-- <h2 class="page-header__title display-4">Routing</h2> -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb justify-content-center bg-transparent">
+        <!-- <li class="breadcrumb-item"><a href="/" class="text-light">Home</a></li>
+        <li class="breadcrumb-item active text-light" aria-current="page">Routing</li> -->
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<section class="product-page section-space py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h3 class="sec-title__title bw-split-in-left">Travel Routes for <span> {{ place }}</span></h3>
+     
+    </div>
+
+    {% if travel_data %}
+      {% for route in travel_data %}
+        <div class="row g-4 mb-4 mt-4">
+          <!-- Travel Route Card -->
+          <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h4 class="card-title text-primary"><i class="fas fa-route"></i> {{ route.route }}</h4>
+                <p class="mb-1"><strong>Duration:</strong> {{ route.duration }}</p>
+                <p class="mb-1"><strong>Distance:</strong> {{ route.total_distance }}</p>
+                <p class="mb-3"><strong>Price:</strong> {{ route.price_range.currency }} {{ route.price_range.low }} - {{ route.price_range.high }}</p>
+                <a href="{{ route.booking_url }}" target="_blank" class="btn btn-success">
+                  <i class="fas fa-shopping-cart"></i> Book Now
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Segment Cards -->
+          <div class="col-lg-6">
+            <div class="row g-3">
+              {% for segment in route.segments %}
+              <div class="col-md-12">
+                <div class="card shadow-sm h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <i class="fas fa-map-pin text-warning"></i>
+                      {{ segment.origin.name }} ➜ {{ segment.destination.name }}
+                    </h5>
+                    <p><strong>Segment Duration:</strong> {{ segment.duration }}</p>
+                    <p><strong>Segment Price:</strong> {{ segment.price.currency }} {{ segment.price.amount }}</p>
+                    <div class="d-flex flex-wrap gap-2">
+                      <a href="/map?orig_lat={{ segment.origin.latitude }}&orig_lng={{ segment.origin.longitude }}&dest_lat={{ segment.destination.latitude }}&dest_lng={{ segment.destination.longitude }}&orig_name={{ segment.origin.name | urlencode }}&dest_name={{ segment.destination.name | urlencode }}"
+                        class="btn btn-secondary btn-sm" target="_blank">
+                        <i class="fas fa-map-marked-alt"></i> View on Map
+                      </a>
+                      <a href="{{ segment.booking_url }}" target="_blank" class="btn btn-success btn-sm">
+                        <i class="fas fa-shopping-cart"></i> Book Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="alert alert-warning text-center" role="alert">
+        <i class="fas fa-info-circle"></i> No travel data available.
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title"><i class="fas fa-map-marked-alt"></i> Map to Destination</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="modalMap" class="map-container rounded shadow-sm"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Leaflet + Bootstrap JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script>
+  let mapInstance;
+
+  function showMapModal(origLat, origLng, destLat, destLng, origName, destName) {
+    const modal = new bootstrap.Modal(document.getElementById('mapModal'));
+    modal.show();
+
+    setTimeout(() => {
+      if (mapInstance) {
+        mapInstance.remove();
+      }
+
+      mapInstance = L.map('modalMap').setView([(origLat + destLat) / 2, (origLng + destLng) / 2], 6);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+      }).addTo(mapInstance);
+
+      L.marker([origLat, origLng], {
+        icon: L.icon({
+          iconUrl: 'https://cdn-icons-png.flaticon.com/512/252/252025.png',
+          iconSize: [30, 30],
+          iconAnchor: [15, 30],
+          popupAnchor: [0, -30]
+        })
+      }).addTo(mapInstance).bindPopup("Origin: " + origName).openPopup();
+
+      L.marker([destLat, destLng], {
+        icon: L.icon({
+          iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png',
+          iconSize: [30, 30],
+          iconAnchor: [15, 30],
+          popupAnchor: [0, -30]
+        })
+      }).addTo(mapInstance).bindPopup("Destination: " + destName);
+
+      const routeLine = L.polyline([[origLat, origLng], [destLat, destLng]], {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }).addTo(mapInstance);
+
+      mapInstance.fitBounds(routeLine.getBounds());
+    }, 400);
+  }
+</script>
+{% endblock body %}

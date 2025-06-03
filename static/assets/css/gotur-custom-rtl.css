@@ -1,0 +1,79 @@
+body {
+  overflow-x: hidden;
+  direction: rtl;
+}
+
+.owl-carousel {
+  direction: ltr;
+}
+
+.owl-carousel .owl-nav,
+.owl-carousel .owl-dots,
+.owl-carousel .owl-item {
+  direction: rtl;
+}
+
+.contact__input-box .bootstrap-select .dropdown-menu,
+.bootstrap-select .dropdown-toggle .filter-option {
+  text-align: right;
+}
+
+.list-unstyled {
+  padding-right: 0;
+}
+
+/***Header Css**/
+.main-header__info a:first-child {
+  margin-right: 20px;
+}
+
+.main-header__info a + a {
+  margin-right: 0;
+}
+
+.main-slider-one__bottom__nav button {
+  transform: rotate(90deg);
+}
+
+.feature-package__carousel__nav--left,
+.feature-package__carousel__nav--right {
+  transform: rotateY(-180deg);
+}
+
+.offer-one__card__thumb {
+  transform: rotateY(-180deg);
+}
+
+.offer-one__card--two .offer-one__card__thumb {
+  left: -1px;
+  right: auto;
+  transform: rotateY(0deg);
+}
+
+.offer-one__card--two .offer-one__card__btn {
+  text-align: start;
+}
+
+.offer-one__card--two::before {
+  right: 40px;
+  left: auto;
+}
+
+.testimonials-three__carousel__nav--left,
+.testimonials-three__carousel__nav--right {
+  transform: rotateX(-180deg);
+}
+
+.testimonials-three::after,
+.testimonials-three__thumb img,
+.footer-widget__newsletter .form-group__form button[type=submit],
+.blog-card-two__meta a i,
+.offer-one__element {
+  transform: rotateY(-180deg);
+}
+
+.destination-card-one__content::after,
+.destination-card-one__content::before {
+  transform: rotate(40deg);
+}
+/*# sourceMappingURL=gotur-custom-rtl.css.map */

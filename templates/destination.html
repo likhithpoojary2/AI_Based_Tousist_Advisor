@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+
+{% block body %}
+
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(../static/assets/images/backgrounds/page-header-bg-1-1.jpg);"></div><!-- /.page-header__bg -->
+            <div class="container">
+                <div class="page-header__content">
+                    <h2 class="page-header__title bw-split-in-right">destination </h2>
+                    <ul class="gotur-breadcrumb list-unstyled">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li><span>destination</span></li>
+                    </ul><!-- /.thm-breadcrumb list-unstyled -->
+                </div><!-- /.page-header__content -->
+            </div><!-- /.container -->
+        </section><!-- /.page-header -->
+
+
+        
+
+        <section class="destination-two section-space">
+
+            <div class="container">
+                <div class="row gutter-y-30 gutter-x-30">
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <input type="text" id="search-bar" class="form-control" placeholder="Search destinations..." style="border: 2px solid #ccc; padding: 10px; font-size: 16px;">
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-8">
+                        <div class="row gutter-y-30 gutter-x-30">
+
+                            
+
+                            <h3 class="sec-title__title bw-split-in-left">Travel Destinations for you... </h3>
+
+
+
+
+                            <h6 class="sec-title__tagline bw-split-in-right" >Available Destinations:</h6>
+                            
+                      
+                            {% if destinations %}
+                            {% for dest in destinations %}
+
+
+                            <div class="col-md-4 col-sm-6 destination-card-wrapper" data-name="{{ dest.name|lower }}">
+                                <div class="destination-card-two after-color-1 wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                    <div class="destination-card-two__thumb">
+                                        <img  src="{{ dest.imageUrl }}" alt="{{ dest.name }}" style="width:400px;height:300px;">
+                                        <a href="#" class="destination-card-two__overly" ></a>
+                                      
+                                       
+                                    </div><!-- /.destination-card-two__thumb -->
+                                    <div class="destination-card-two__content">
+                                        <h3 class="destination-card-two__title">
+                                            <a href="/destination-details?dest_id={{ dest.id }}" onclick="event.preventDefault(); saveClick('{{ dest.id }}');">
+                                                {{ dest.name }}
+                                            </a>
+                                            
+
+                                        </h3>
+                                        <!-- /.destination-card-two__title -->
+                                       
+                                    </div><!-- /.destination-one__content -->
+
+                                    
+                                </div><!-- /.destination-one -->
+                                <h6 class="sec-title__tagline " ><b>Weather:</b><i class="fa-solid fa-temperature-half"></i> {{ dest.weatherType if dest.weatherType else "N/A" }}</h6>
+                               
+                                <p class="sec-title__tagline " ><b>Budget:</b> <i class="fa-solid fa-tag"></i>₹{{ dest.price if dest.price else "N/A" }}</p>
+                            </div><!-- /.col-lg-4 col-md-4 col-sm-6 -->
+                      
+                            {% endfor %}
+                            {% else %}
+
+                            <p>No Destination Found</p>
+
+
+                            {% endif %}
+
+
+
+
+                            <script>
+                                function saveClick(destinationId) {
+                                    fetch('/save_click', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({ destination_id: destinationId })
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.status === "success") {
+                                            window.location.href = data.redirect_url;  // Redirect on success
+                                        } else {
+                                            console.error("Error:", data.message);
+                                        }
+                                    })
+                                    .catch(error => console.error("Error:", error));
+                                }
+                                
+                            </script>
+                            
+
+                  
+                          
+
+
+                           
+                        </div><!-- /.row -->
+                    </div><!-- /.col-lg-8 -->
+                    <div class="col-lg-4">
+                        <aside class="destination-details__sidebar">
+                            <div class="destination-details__sidebar__item destination-details__sidebar__item-list wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+
+
+                                <h4 class="destination-details__sidebar__title wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>Filter</h4><!-- /.destination-details__sidebar__title -->
+
+
+                                <form method="POST">
+                                    <label for="budget" style="color:green">Max Budget (₹):</label>
+                                    <input type="number" name="budget" id="budget" placeholder="Enter budget" class="form-control" required>
+                            
+                                    <br><br>
+                            
+                                    <label style="color:green;">Preferred Weather:</label><br>
+                                    <input type="checkbox" name="weather" value="Colder"> Colder
+                                    <input type="checkbox" name="weather" value="Warmer"> Warmer
+                                    <input type="checkbox" name="weather" value="Snow"> Snow
+                                    <input type="checkbox" name="weather" value="No Snow"> No Snow
+                                    <input type="checkbox" name="weather" value="Rain"> Rain
+                                    <input type="checkbox" name="weather" value="No Rain"> No Rain
+                                    <input type="checkbox" name="weather" value="Pollution Free"> Pollution Free
+                                    <input type="checkbox" name="weather" value="No Pollution"> No Pollution
+                                    <input type="checkbox" name="weather" value="Hot"> Hot
+                                    <input type="checkbox" name="weather" value="Dry"> Dry
+                                    <br>
+                        
+                                    
+                            
+                                    <br><br>
+                            
+                                    <button type="submit" class="destination-details__sidebar__text btn btn-success"><i class="fa-solid fa-filter"></i>Filter</button>
+                                    <button type="button" class="btn btn-warning" onclick="resetForm()">
+    <i class="fa-solid fa-repeat"></i> Reset
+</button>
+
+<script>
+    function resetForm() {
+        document.querySelector("form").reset();
+        window.location.href = "/destination";  // Redirect to reset filters
+    }
+</script>
+                                </form>
+
+                                
+                                <ul class="destination-details__sidebar__list">
+                                  
+                                </ul>
+                            </div><!-- /.destination-details__sidebar__item -->
+                          
+                        </aside><!-- /.destination-details__sidebar -->
+                    </div><!-- /.col-lg-4 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.destination-two -->
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#search-bar').on('keyup', function () {
+            var value = $(this).val().toLowerCase().trim();
+            $('.destination-card-wrapper').each(function () {
+                var name = $(this).data('name');
+                if (name.includes(value)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+</script>
+
+
+        {% endblock body %}
