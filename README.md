@@ -184,34 +184,7 @@ Visit `http://localhost:5000` in your browser.
 
 ---
 
-## API Setup Guide
 
-### Google Gemini (Generative AI)
-
-1. Go to: [https://makersuite.google.com/](https://makersuite.google.com/)
-2. Generate API Key
-3. Replace in `app.py`:
-
-```python
-genai.configure(api_key="YOUR_KEY")
-```
-
-### Google Custom Search
-
-1. Go to: [https://programmablesearchengine.google.com/](https://programmablesearchengine.google.com/)
-2. Create a Custom Search Engine
-3. Enable Image Search and get:
-
-   * Search API Key
-   * CX (Search Engine ID)
-4. Replace in `app.py`:
-
-```python
-GOOGLE_SEARCH_API_KEY = "..."
-GOOGLE_SEARCH_CX = "..."
-```
-
----
 
 ## Future Improvements
 
